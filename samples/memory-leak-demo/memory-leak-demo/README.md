@@ -17,6 +17,28 @@
 - **静的コレクションへのデータ追加**：アプリケーションの実行中にどんどんメモリを消費し続けます。
 - **イベントハンドラの未登録解除**：イベントにサブスクライブしたオブジェクトが適切に解除されないと、オブジェクトとそれが保持するすべてのリソースがメモリ内に残り続けます。
 
+## サンプル紹介
+
+```text
+.
++-- Program.cs － メモリリーク再現プログラム
++-- ImprovedCollection.cs － 静的コレクションのメモリリーク回避
++-- ImprovedEventHandling.cs － イベントハンドラの適切な登録解除
++-- WeakReferenceExample.cs － 弱参照（WeakReference）の活用
++-- ResourceManager － IDisposableとusingステートメントの適切な使用
++-- ImprovedCircularReference.cs － キャッシュと循環参照の適切な管理
+```
+
+## メモリリーク再現プログラム実行方法
+
+
+```powershell
+cd dotnet8-workshop\samples\memory-leak-demo\memory-leak-demo
+dotnet run --configuration Debug 
+```
+
+※ ディレクトリは利用者側で適宜合わせてください。
+
 ## メモリリークを防ぐためのベストプラクティス：
 
 - **IDisposableの実装と利用**：リソースを持つクラスはIDisposableを実装し、usingステートメントでリソースを確実に解放します。
