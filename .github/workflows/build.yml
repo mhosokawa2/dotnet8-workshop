@@ -43,5 +43,7 @@ jobs:
         shell: powershell
         run: |
           ${{ runner.temp }}\scanner\dotnet-sonarscanner begin /k:"mhosokawa2_dotnet8-workshop" /o:"mhosokawa2" /d:sonar.token="${{ secrets.SONAR_TOKEN }}"
-          dotnet build
+          dotnet build samples/code-review-demo/code-review-demo.sln
+          dotnet build samples/memory-leak-demo/memory-leak-demo.sln
+          dotnet build samples/multithreading-demo/multithreading-demo.sln
           ${{ runner.temp }}\scanner\dotnet-sonarscanner end /d:sonar.token="${{ secrets.SONAR_TOKEN }}"
